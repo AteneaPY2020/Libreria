@@ -1,3 +1,4 @@
+from logic import Logic
 from flask import Blueprint, render_template, request, redirect, session
 import os
 from prestamosLogic import prestamosLogic
@@ -8,5 +9,13 @@ prestamo_blueprint = Blueprint(
 )
 
 @prestamo_blueprint.route("/prestamos", methods=["GET", "POST"])
-def nuevo_prestamo():
-    return render_template("loan.html")
+def prestamosTot():
+    request.method =="GET"
+    prestamos = prestamosLogic().getAllprestamosTot()
+    return render_template("loan.html",prestamos=prestamos)
+
+
+   
+
+
+        
