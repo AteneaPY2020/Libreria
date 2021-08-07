@@ -45,12 +45,46 @@ class prestamosLogic(Logic):
         )
         rows = dataBase.executeNonQueryRows(sql)
 
-        sql2 = (
+        self.updateDisponible(id_libro, disponibles)
+
+        return rows
+
+    def getAllPrestamosPendientes(self):
+            dataBase = self.get_databaseXObj()
+            sql = (
+                "select prestamos.id_prestamo, libros.id_libro, libros.titulo, libros.disponibles, usuarios.usuario, prestamos.fecha_prestamo, prestamos.fecha_entrega "
+                + "from biblioteca.libros inner join biblioteca.prestamos on libros.id_libro = prestamos.id_libro "
+                + "inner join biblioteca.usuarios on prestamos.id_usuario = usuarios.id_usuario "
+                + "where prestamos.entregado = 0 order by prestamos.fecha_entrega;"
+            )
+            data = dataBase.executeQuery(sql)
+            data = self.tupleToDictionaryList(
+                data, ["id_prestamos", "id_libro","titulo", "disponibles","usuario", "fecha_prestamo", "fecha_entrega"]
+            )
+            return data
+
+    def updatePrestamoSatus(self, id_prestamo, id_libro, disponibles):
+        dataBase = self.get_databaseXObj()
+
+        sql = (
+            "UPDATE biblioteca.prestamos set prestamos.entregado = 1 "
+            + f"where prestamos.id_prestamo = {id_prestamo}"
+        )
+
+        rows = dataBase.executeNonQueryRows(sql)
+        self.updateDisponible(id_libro, disponibles)
+        
+        return rows
+
+    def updateDisponible(self, id_libro, disponibles):
+        dataBase = self.get_databaseXObj()
+
+        sql = (
             "UPDATE biblioteca.libros set disponibles = %s "
             + "where id_libro = %s;"
         )
 
         data = (disponibles, id_libro)
-        rows = dataBase.executeNonQueryRowsTuple(sql2, data)
+        rows = dataBase.executeNonQueryRowsTuple(sql, data)
         
         return rows

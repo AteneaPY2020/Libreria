@@ -10,6 +10,7 @@ nuevo_prestamo_blueprint = Blueprint(
 
 @nuevo_prestamo_blueprint.route("/nuevoPrestamo", methods=["GET", "POST"])
 def nuevo_prestamo():
+    error = False
     if request.method == "GET":
         # Recoge las listas necesarios
         libros = prestamosLogic().getAllLibrosCodigos()
@@ -17,10 +18,6 @@ def nuevo_prestamo():
         return render_template("newloan.html", libros=libros, usuarios=usuarios)
     
     elif request.method == "POST":
-        # Recoge las listas necesarios
-        libros = prestamosLogic().getAllLibrosCodigos()
-        usuarios = prestamosLogic().getAllUsuarios()
-
         libro = request.form["libro"]
         usuario = request.form["usuario"]
         fecha_prestamo = request.form["fecha_prestamo"]
@@ -29,7 +26,15 @@ def nuevo_prestamo():
         listaLibro = libro.split()
         id_libro = int(listaLibro[0])
         disponibles = int(listaLibro[1]) - 1
+        
+        # Recoge las listas necesarios
+        libros = prestamosLogic().getAllLibrosCodigos()
+        usuarios = prestamosLogic().getAllUsuarios()
 
-        prestamosLogic().newPrestamo(id_libro, usuario, fecha_prestamo, fecha_devolucion, disponibles) 
-
-        return render_template("newloan.html", libros=libros, usuarios=usuarios)
+        if disponibles + 1 == 0:
+            message = "No hay libros disponibles. No se puede realizar el prestamo"
+            error = True
+            return render_template("newloan.html", libros=libros, usuarios=usuarios, message=message, error=error)
+        else:
+            prestamosLogic().newPrestamo(id_libro, usuario, fecha_prestamo, fecha_devolucion, disponibles) 
+            return render_template("newloan.html", libros=libros, usuarios=usuarios)

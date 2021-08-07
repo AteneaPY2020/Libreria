@@ -9,4 +9,15 @@ prestamos_pendientes_blueprint = Blueprint(
 
 @prestamos_pendientes_blueprint.route("/prestamosPendientes", methods=["GET", "POST"])
 def nuevo_prestamo():
-    return render_template("loanpending.html")
+    if request.method == "GET":
+        prestamos = prestamosLogic().getAllPrestamosPendientes()
+        return render_template("loanpending.html", prestamos=prestamos)
+    
+    elif request.method == "POST":
+        id_prestamo = request.form["id_prestamo"]
+        id_libro = request.form["id_libro"]
+        disponibles = int(request.form["disponibles"]) + 1
+        prestamosLogic().updatePrestamoSatus(id_prestamo, id_libro, disponibles)
+
+        prestamos = prestamosLogic().getAllPrestamosPendientes()
+        return render_template("loanpending.html", prestamos=prestamos)

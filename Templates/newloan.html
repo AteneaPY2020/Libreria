@@ -118,12 +118,14 @@
                 </div>
             </div>
         </div>
+
+        {% if error %}
+
+        <div class="title-flat-form title-flat-red">{{ message }}</div>
+
+        {% endif %}
+
         <div class="container-fluid">
-        
-        
-
-
-
             <div class="container-fluid">
                 <div class="container-flat-form">
                     <div class="title-flat-form title-flat-blue">Nuevo préstamos</div>
