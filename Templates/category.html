@@ -1,6 +1,4 @@
-<!-- 
-* Copyright 2018 Carlos Eduardo Alfaro Orellana
--->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,17 +38,18 @@
             <div class="nav-lateral-divider full-reset"></div>
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
-                    <li><a href="Templates/home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="C:\Users\alexi\Desktop\ESEN\Tercer año\Proyecto\Libreria\Templates\home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-case zmdi-hc-fw"></i>&nbsp;&nbsp; Administración <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
                             <li><a href="Templates/category.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Nueva categoría</a></li>
+                            <li><a href="listcategory.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de categorías</a></li>
                         </ul>
                     </li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="Templates/student.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo estudiante</a></li>
+                            <li><a href="Templates/student.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo usuario</a></li>
                             <li><a href="Templates/admin.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>
                         </ul>
                     </li>
@@ -133,12 +132,14 @@
                         <div class="col-xs-12">
                             <legend><i class="zmdi zmdi-bookmark-outline"></i> &nbsp; Datos de la categoría</legend><br>
                         </div>
+                    <form action="/category" method="POST">
                         <div class="col-xs-12 col-sm-6">
                             <div class="group-material">
                                 <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el código de categoría"  required="" pattern="[0-9]{1,20}" maxlength="20" data-toggle="tooltip" data-placement="top" title="Solo números, máximo 20 caracteres">
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Código de categoría</label>
+                                <br><input type="text" id="codigo" name="codigo">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
@@ -147,13 +148,16 @@
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Nombre</label>
+                                <br><input type="text" id="categoria" name="categoria">
                             </div>
                         </div>
                        <div class="col-xs-12">
+                        <input type="hidden" name="formId" id="formId" value="1">
                             <p class="text-center">
                                 <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
                             </p> 
                        </div>
+                    </form>
                     </div>
                 </form>
             </div>

@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, session
+from categoria import categoria
 
 app = Flask(__name__)
-#app.register_blueprint(login_registro, url_prefix="")
+app.register_blueprint(categoria, url_prefix="")
 #app.register_blueprint(registro_productos, url_prefix="")
 #app.register_blueprint(inicio_inversionista, url_prefix="")
 #app.register_blueprint(emprendimiento, url_prefix="")
@@ -14,7 +15,7 @@ app.secret_key = "ILoveFishing"
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("category.html")
 
 
 if __name__ == "__main__":
