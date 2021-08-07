@@ -46,10 +46,11 @@ class prestamosLogic(Logic):
         rows = dataBase.executeNonQueryRows(sql)
 
         sql2 = (
-            f"UPDATE biblioteca.libros set disponibles = {disponibles} "
-            + f"where id_libro = {id_usuario};"
+            "UPDATE biblioteca.libros set disponibles = %s "
+            + "where id_libro = %s;"
         )
 
-        rows = dataBase.executeNonQueryRows(sql2)
-
+        data = (disponibles, id_libro)
+        rows = dataBase.executeNonQueryRowsTuple(sql2, data)
+        
         return rows
