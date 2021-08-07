@@ -12,3 +12,44 @@ class prestamosLogic(Logic):
             "fecha_prestamo",
             "fecha_entrega",
         ]
+
+    def getAllLibrosCodigos(self):
+            dataBase = self.get_databaseXObj()
+            sql = (
+                "select libros.id_libro, libros.correlativo, libros.titulo, libros.disponibles "
+                + "from libros;"
+            )
+            data = dataBase.executeQuery(sql)
+            data = self.tupleToDictionaryList(
+                data, ["id_libro", "correlativo", "titulo", "disponibles"]
+            )
+            return data
+
+    def getAllUsuarios(self):
+            dataBase = self.get_databaseXObj()
+            sql = (
+                "select usuarios.id_usuario, usuarios.nombre, usuarios.apellidos, usuarios.correo  "
+                + "from usuarios;"
+            )
+            data = dataBase.executeQuery(sql)
+            data = self.tupleToDictionaryList(
+                data, ["id_usuario", "nombre", "apellidos", "correo"]
+            )
+            return data
+
+    def newPrestamo(self, id_libro, id_usuario, fecha_prestamo, fecha_devolucion, disponibles):
+        dataBase = self.get_databaseXObj()
+        sql = (
+            "insert into biblioteca.prestamos (id_prestamo, id_libro, id_usuario, fecha_prestamo, fecha_entrega) "
+            + f"values (0, {id_libro}, {id_usuario}, '{fecha_prestamo}', '{fecha_devolucion}');"
+        )
+        rows = dataBase.executeNonQueryRows(sql)
+
+        sql2 = (
+            f"UPDATE biblioteca.libros set disponibles = {disponibles} "
+            + f"where id_libro = {id_usuario};"
+        )
+
+        rows = dataBase.executeNonQueryRows(sql2)
+
+        return rows

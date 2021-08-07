@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, Blueprint
+from nuevo_prestamo import nuevo_prestamo_blueprint
+
 
 app = Flask(__name__)
-#app.register_blueprint(login_registro, url_prefix="")
+app.register_blueprint  (nuevo_prestamo_blueprint, url_prefix="")
 #app.register_blueprint(registro_productos, url_prefix="")
 #app.register_blueprint(inicio_inversionista, url_prefix="")
 #app.register_blueprint(emprendimiento, url_prefix="")
