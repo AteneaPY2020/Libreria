@@ -26,21 +26,26 @@
           <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
         </p>
         <h4 class="text-center all-tittles" style="margin-bottom: 30px;">inicia sesión con tu cuenta</h4>
-        <form action="Templates/home.html">
+        <!--{% block content %}-->
+
+        <form action="/login" method="POST">
             <div class="group-material-login">
-              <input type="text" class="material-login-control" required="" maxlength="70">
+              <input type="text" id="usuario" name="usuario" class="material-login-control" required="" maxlength="70">
               <span class="highlight-login"></span>
               <span class="bar-login"></span>
-              <label><i class="zmdi zmdi-account"></i> &nbsp; Nombres</label>
+              <label><i class="zmdi zmdi-account"></i> &nbsp; Usuario</label>
             </div><br>
             <div class="group-material-login">
-              <input type="password" class="material-login-control" required="" maxlength="70">
+              <input type="password" id="contrasenna" name="contrasenna" class="material-login-control" required="" maxlength="70">
               <span class="highlight-login"></span>
               <span class="bar-login"></span>
               <label><i class="zmdi zmdi-lock"></i> &nbsp; Contraseña</label>
             </div><br>
             <button class="btn-login" type="submit">Ingresar al sistema &nbsp; <i class="zmdi zmdi-arrow-right"></i></button>
         </form>
+
+        <!--{% endblock %}-->
+
     </div>   
   </div>
 </body>

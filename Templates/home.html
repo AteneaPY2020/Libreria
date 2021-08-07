@@ -20,7 +20,7 @@
     <script src="static/js/main.js"></script>
 </head>
 
-<body>
+{% block body %}
     <div class="navbar-lateral full-reset">
         <div class="visible-xs font-movile-menu mobile-menu-button"></div>
         <div class="full-reset container-menu-movile nav-lateral-scroll">
@@ -98,7 +98,7 @@
             <article class="tile">
                 <div class="tile-icon full-reset"><i class="zmdi zmdi-face"></i></div>
                 <div class="tile-name all-tittles">administradores</div>
-                <div class="tile-num full-reset">7</div>
+                <div class="tile-num full-reset">{{data[0]}}</div>
             </article>
             <article class="tile">
                 <div class="tile-icon full-reset"><i class="zmdi zmdi-accounts"></i></div>
@@ -138,5 +138,5 @@
             <div class="footer-copyright full-reset all-tittles">© 2021 Sistemas de Información</div>
         </footer>
     </div>
-</body>
+{% endblock body%}
 </html>
