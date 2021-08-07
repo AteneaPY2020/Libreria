@@ -31,8 +31,8 @@ def listcategory():
         logic = categoriaLogic()
         message = ""
         if request.method == "GET":
-            data = logic.getAllCategory()
-            return render_template("listcategory.html", date=data,)
+            dataCategory = logic.getAllCategory()
+            return render_template("listcategory.html", dataCategory=dataCategory,)
 
         elif request.method == "POST":
             formId = int(request.form["formId"])
@@ -41,8 +41,8 @@ def listcategory():
                 id_category = int(request.form["id"])
                 logic.deleteCategory(id_category)
                 message = "Se ha agregado una categoria"
-                data = logic.getAllCategory()
-                return render_template("listcategory.html", date=data,)
+                dataCategory = logic.getAllCategory()
+                return render_template("listcategory.html", dataCategory=dataCategory,)
     except KeyError:
         return render_template(
             "index.html", messageSS="Su sesión ha expirado, ingrese nuevamente"
