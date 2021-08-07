@@ -11,3 +11,9 @@ class categoriaObj:
 
     def getId(self):
         return self.id
+    
+    def getcategoria(self):
+        return self.categoria
+
+    def getcodigo(self):
+        return self.codigo

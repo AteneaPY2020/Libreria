@@ -6,20 +6,23 @@ categoria = Blueprint(
     "categoria", __name__, template_folder="Templates", static_folder="static"
 )
 
-@categoria.route("/category", methods=["GET", "POST"])
+@categoria.route("/categoryIn", methods=["GET", "POST"])
 def Insertcategory():
     try:
         logic = categoriaLogic()
         message = ""
         if request.method == "POST":
-            formId = int(request.form["formId"])
             categoria = request.form["categoria"]
             codigo = request.form["codigo"]
-
             #INSERTAR 
+            formId = int(request.form["formId"])
             if formId == 1:
                 rows = logic.insertCategory(categoria, codigo)
                 message = "Se ha agregado una categoria"
+                return render_template("category.html")
+        elif request.method == "GET":
+            return render_template("category.html")    
+        
     except KeyError:
         return render_template(
             "index.html", messageSS="Su sesión ha expirado, ingrese nuevamente"
@@ -31,8 +34,8 @@ def listcategory():
         logic = categoriaLogic()
         message = ""
         if request.method == "GET":
-            dataCategory = logic.getAllCategory()
-            return render_template("listcategory.html", dataCategory=dataCategory,)
+            data = logic.getAllCategory()
+            return render_template("listcategory.html", data=data,)
 
         elif request.method == "POST":
             formId = int(request.form["formId"])
@@ -41,8 +44,8 @@ def listcategory():
                 id_category = int(request.form["id"])
                 logic.deleteCategory(id_category)
                 message = "Se ha agregado una categoria"
-                dataCategory = logic.getAllCategory()
-                return render_template("listcategory.html", dataCategory=dataCategory,)
+                data = logic.getAllCategory()
+                return render_template("listcategory.html", data=data,)
     except KeyError:
         return render_template(
             "index.html", messageSS="Su sesión ha expirado, ingrese nuevamente"

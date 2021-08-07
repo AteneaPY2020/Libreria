@@ -23,7 +23,7 @@ class categoriaLogic(Logic):
             categoria,
             codigo,
         )
-        rows = database.executeNonQueryRowsTuple(sql, data)
+        rows = database.executeNonQueryRowsTuple(sql,data)
         return rows
     
     #Select Categoria

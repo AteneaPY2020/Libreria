@@ -1,6 +1,3 @@
-<!-- 
-* Copyright 2018 Carlos Eduardo Alfaro Orellana
--->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -129,55 +126,58 @@
         <div class="container-fluid">
             <div class="container-flat-form">
                 <div class="title-flat-form title-flat-blue">Registrar un nuevo estudiante</div>
-                <form class="form-padding">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <legend><i class="zmdi zmdi-account-box"></i> &nbsp; Datos básicos</legend><br>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí el email del usuario" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="NIE de estudiante">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>E-mail</label>
+                <form action="/userIn" method="POST">
+                    <form class="form-padding">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <legend><i class="zmdi zmdi-account-box"></i> &nbsp; Datos básicos</legend><br>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los nombres del alumno" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Nombres del estudiante">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Nombres</label>
+                            <div class="col-xs-12">
+                                <div class="group-material">
+                                    <input type="text"id="correo" name="correo" class="material-control tooltips-general" placeholder="Escribe aquí el email del usuario" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="NIE de estudiante">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>E-mail</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="group-material">
-                                <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí los apellidos del alumno" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Apellidos del estudiante">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Apellidos</label>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="group-material">
+                                    <input type="text" id="nombre" name="nombre" class="material-control tooltips-general" placeholder="Escribe aquí los nombres del alumno" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Nombres del estudiante">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Nombres</label>
+                                </div>
                             </div>
-                        </div>
-                        
-                        
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="group-material">
+                                    <input type="text" id="apellidos" name="apellidos" class="material-control tooltips-general" placeholder="Escribe aquí los apellidos del alumno" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Apellidos del estudiante">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Apellidos</label>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-xs-12">
+                                <legend><i class="zmdi zmdi-lock"></i> &nbsp; Datos de la cuenta</legend><br>
+                            </div>
+                            <div class="col-xs-12">
+                            <div class="group-material">
+                                    <input type="text" id="usuario" name="usuario" class="material-control tooltips-general input-check-user" placeholder="Nombre de usuario" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" title="Escribe un nombre de usuario sin espacios, que servira para iniciar sesión">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Nombre de usuario</label>
+                            </div>
+                            </div>
+                            
                         <div class="col-xs-12">
-                            <legend><i class="zmdi zmdi-lock"></i> &nbsp; Datos de la cuenta</legend><br>
+                                <p class="text-center">
+                                    <input type="hidden" name="formId" id="formId" value="1">
+                                    <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
+                                </p> 
                         </div>
-                        <div class="col-xs-12">
-                           <div class="group-material">
-                                <input type="text" class="material-control tooltips-general input-check-user" placeholder="Nombre de usuario" required="" maxlength="20" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]{1,20}" data-toggle="tooltip" data-placement="top" title="Escribe un nombre de usuario sin espacios, que servira para iniciar sesión">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Nombre de usuario</label>
-                           </div>
                         </div>
-                        
-                       <div class="col-xs-12">
-                            <p class="text-center">
-                                <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
-                            </p> 
-                       </div>
-                    </div>
+                    </form>
                 </form>
             </div>
         </div>

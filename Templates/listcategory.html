@@ -134,18 +134,19 @@
                     <div class="div-table-cell">Eliminar</div>
                 </div>
 
-                {% for registro in dataCategory %}
+                {% for registro in data %}
                     <div class="div-table-row">
                         <div class="div-table-cell">{{registro["id"]}}</div>
                         <div class="div-table-cell">{{registro["codigo"]}}</div>
                         <div class="div-table-cell">{{registro["categoria"]}}</div>
                     
                         <form action="/listcategory" method="POST">
-                        <div class="div-table-cell">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                            <input type="hidden" name="formId" id="formId" value="2">
-                            <input type="hidden" name="id" id="id" value="{{registro["id"]}}">
-                        </div>
+                            <div class="div-table-cell">
+                                <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                                <input type="hidden" name="formId" id="formId" value="2">
+                                <input type="hidden" name="id" id="id" value="{{registro["id"]}}">
+                            </div>
+                        </form>
                     </div>
                 {% endfor %}
             </div>
