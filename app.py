@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, redirect, session
 from login import login_admin
-from home import home
+from home import home_blueprint
 
 app = Flask(__name__)
 app.register_blueprint(login_admin, url_prefix="")
-app.register_blueprint(home, url_prefix="")
+app.register_blueprint(home_blueprint, url_prefix="")
 #app.register_blueprint(inicio_inversionista, url_prefix="")
 #app.register_blueprint(emprendimiento, url_prefix="")
 #app.register_blueprint(emprendimientoInicio, url_prefix="")

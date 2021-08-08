@@ -22,3 +22,14 @@ class librosLogic(Logic):
             "disponibles",
             "id_categoria",
         ]
+
+    def count(self):
+        dataBase = self.get_databaseXObj()
+        sql = (
+            " SELECT COUNT(id_libro) FROM biblioteca.libros  "
+        )
+        print(sql)
+        data = dataBase.executeQuery(sql)
+        #data = self.lis(data, self.keys)
+        
+        return data

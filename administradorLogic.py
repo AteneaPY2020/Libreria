@@ -36,16 +36,13 @@ class administradorLogic(Logic):
         }
         return dictionary
 
-    
-    
-    
-    def countAdmin(self):
+    def count(self):
         dataBase = self.get_databaseXObj()
         sql = (
             " SELECT COUNT(id_administrador) FROM biblioteca.administradores  "
         )
         print(sql)
         data = dataBase.executeQuery(sql)
-        data = self.tupleToDictionaryList(data, self.keys)
+        #data = self.lis(data, self.keys)
         
         return data

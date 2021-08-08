@@ -20,9 +20,9 @@ def login():
         if userData is not None:
             
             session["user"] = userData
-            return render_template("home.html")
+            #return render_template("home.html")
+            return redirect("/home")
         else:
             return render_template(
                 "index.html", message="Error. Usuario o contraseña incorrecta"
             )
-

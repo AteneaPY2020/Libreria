@@ -12,3 +12,15 @@ class usuariosLogic(Logic):
             "apellidos",
             "correo",
         ]
+
+
+    def count(self):
+        dataBase = self.get_databaseXObj()
+        sql = (
+            " SELECT COUNT(id_usuario) FROM biblioteca.usuarios  "
+        )
+        print(sql)
+        data = dataBase.executeQuery(sql)
+        #data = self.lis(data, self.keys)
+        
+        return data
