@@ -37,34 +37,34 @@
             <div class="nav-lateral-divider full-reset"></div>
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
-                    <li><a href="Templates/home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="/home"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-case zmdi-hc-fw"></i>&nbsp;&nbsp; Administración <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="Templates/category.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Nueva categoría</a></li>
+                            <li><a href="/category"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Nueva categoría</a></li>
                         </ul>
                     </li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="Templates/student.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo estudiante</a></li>
-                            <li><a href="Templates/admin.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>
+                            <li><a href="/student"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo estudiante</a></li>
+                            <li><a href="/admin"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>
                         </ul>
                     </li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-assignment-o zmdi-hc-fw"></i>&nbsp;&nbsp; Libros y catálogo <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="Templates/book.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo libro</a></li>
-                            <li><a href="Templates/catalog.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Catálogo</a></li>
+                            <li><a href="/book"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo libro</a></li>
+                            <li><a href="/catalog"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Catálogo</a></li>
                         </ul>
                     </li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-alarm zmdi-hc-fw"></i>&nbsp;&nbsp; Préstamos <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="Templates/newloan.html"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo préstamo</a></li>
-                            <li><a href="Templates/loan.html"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Todos los préstamos</a></li>
+                            <li><a href="/newloan"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo préstamo</a></li>
+                            <li><a href="/loan"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Todos los préstamos</a></li>
                             <li>
-                                <a href="Templates/loanpending.html"><i class="zmdi zmdi-time-restore zmdi-hc-fw"></i>&nbsp;&nbsp; Devoluciones pendientes <span class="label label-danger pull-right label-mhover">7</span></a>
+                                <a href="/loanpending"><i class="zmdi zmdi-time-restore zmdi-hc-fw"></i>&nbsp;&nbsp; Devoluciones pendientes <span class="label label-danger pull-right label-mhover">7</span></a>
                             </li>
                             
                         </ul>
@@ -83,10 +83,10 @@
                 <li style="color:#fff; cursor:default;">
                     <span class="all-tittles">Admin Name</span>
                 </li>
-                <li  class="tooltips-general exit-system-button" data-href="Templates/index.html" data-placement="bottom" title="Salir del sistema">
+                <li  class="tooltips-general exit-system-button" data-href="/index" data-placement="bottom" title="Salir del sistema">
                     <i class="zmdi zmdi-power"></i>
                 </li>
-                <li  class="tooltips-general search-book-button" data-href="Templates/searchbook.html" data-placement="bottom" title="Buscar libro">
+                <li  class="tooltips-general search-book-button" data-href="/searchbook" data-placement="bottom" title="Buscar libro">
                     <i class="zmdi zmdi-search"></i>
                 </li>
                 
@@ -108,41 +108,24 @@
             </div>
         </div>
         
+        {% for registro in data %}
         <div class="container-fluid">
             <div class="media media-hover">
                 <div class="media-left media-middle">
-                    <a href="#!" class="tooltips-general" data-toggle="tooltip" data-placement="right" title="Más información del libro">
-                      <img class="media-object" src="static/assets/img/book.png" alt="Libro" width="48" height="48">
-                    </a>
+                    <img class="media-object" src="static/assets/img/book.png" alt="Libro" width="48" height="48">
                 </div>
+                
                 <div class="media-body">
-                    <h4 class="media-heading">1 - Título</h4>
+                    <h4 class="media-heading">{{registro['correlativo']}} - {{registro['titulo']}}</h4>
                     <div class="pull-left">
-                        <strong>Autor<br>
-                        <strong>Año<br>
-                        <strong>Ejemplares disponibles<br>
+                        <strong>Autor: {{registro['autor']}}<br>
+                        <strong>Año: {{registro['anno']}}<br>
+                        <strong>Ejemplares Disponibles: {{registro['disponibles']}}<br><br>
                     </div>
-                    
                 </div>
             </div>
-            <div class="media media-hover">
-                <div class="media-left media-middle">
-                    <a href="#!" class="tooltips-general" data-toggle="tooltip" data-placement="right" title="Más información del libro">
-                      <img class="media-object" src="static/assets/img/book.png" alt="Libro" width="48" height="48">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">2 - Título</h4>
-                    <div class="pull-left">
-                        <strong>Autor<br>
-                        <strong>Año<br>
-                        <strong>Ejemplares disponibles<br>
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
+         {% endfor %}
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
