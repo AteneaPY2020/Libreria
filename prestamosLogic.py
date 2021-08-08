@@ -20,7 +20,7 @@ class prestamosLogic(Logic):
         )
         print(sql)
         data = dataBase.executeQuery(sql)
-        #data = self.lis(data, self.keys)
+        #data = self.tupleToDictionaryList(data, self.keys)
         
         return data
 
