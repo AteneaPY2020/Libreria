@@ -38,30 +38,29 @@
             <div class="nav-lateral-divider full-reset"></div>
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
-                    <li><a href="Templates/home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="/home"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Personas <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="Templates/student.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Usuarios</a></li>
-                            <li><a href="Templates/admin.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Administradores</a></li>
+                            <li><a href="/userIn"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Usuarios</a></li>
+                            <li><a href="/admin"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Administradores</a></li>
                         </ul>
                     </li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-assignment-o zmdi-hc-fw"></i>&nbsp;&nbsp; Biblioteca <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="Templates/book.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Libros</a></li>
-                            <li><a href="Templates/catalog.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Catálogo</a></li>
-                            <li><a href="Templates/category.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Categorías</a></li>
+                            <li><a href="/book"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Libros</a></li>
+                            <li><a href="/catalog"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Catálogo</a></li>
+                            <li><a href="/categoryIn"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Categorías</a></li>
                         </ul>
                     </li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-alarm zmdi-hc-fw"></i>&nbsp;&nbsp; Préstamos <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="Templates/newloan.html"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo préstamo</a></li>
-                            <li><a href="Templates/loan.html"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Préstamos finalizados</a></li>
+                            <li><a href="/nuevoPrestamo"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo préstamo</a></li>
+                            <li><a href="/prestamos"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Préstamos finalizados</a></li>
                             <li>
-                                <a href="Templates/loanpending.html"><i class="zmdi zmdi-time-restore zmdi-hc-fw"></i>&nbsp;&nbsp; Devoluciones pendientes <span class="label label-danger pull-right label-mhover">7</span></a>
-                            </li>
+                                <a href="/prestamosPendientes"><i class="zmdi zmdi-time-restore zmdi-hc-fw"></i>&nbsp;&nbsp; Devoluciones pendientes <span class="label label-danger pull-right label-mhover">7</span></a>
                         </ul>
                     </li>
                 </ul>
@@ -69,21 +68,24 @@
         </div>
     </div>
 
-    <!-- BARRA -->
+
     <div class="content-page-container full-reset custom-scroll-containers">
+
+        <!-- BARRA -->    
         <nav class="navbar-user-top full-reset">
             <ul class="list-unstyled full-reset">
                 <figure>
                     <img src="static/assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box">
                 </figure>
                 <li style="color:#fff; cursor:default;">
-                    <span class="all-tittles">Admin Name</span>
+                    <span class="all-tittles">Admin</span>
                 </li>
-                <li  class="tooltips-general exit-system-button" data-href="Templates/index.html" data-placement="bottom" title="Salir del sistema">
+                <li  class="tooltips-general exit-system-button" data-href="/login" data-placement="bottom" title="Salir del sistema">
                     <i class="zmdi zmdi-power"></i>
                 </li>
             </ul>
         </nav>
+
 
         <!-- BODY -->
         <div class="container">
@@ -93,8 +95,8 @@
         </div>
         <div class="conteiner-fluid">
             <ul class="nav nav-tabs nav-justified"  style="font-size: 17px;">
-                <li role="presentation"><a href="Templates/admin.html">Administradores</a></li>
-                <li role="presentation" class="active"><a href="Templates/student.html">Usuarios</a></li>
+                <li role="presentation"><a href="/admin">Administradores</a></li>
+                <li role="presentation" class="active"><a href="/student">Usuarios</a></li>
             </ul>
         </div>
         <div class="container-fluid"  style="margin: 50px 0;">
@@ -111,15 +113,15 @@
             <div class="row">
                 <div class="col-xs-12 lead">
                     <ol class="breadcrumb">
-                        <li><a href="Templates/student.html">Nuevo estudiante</a></li>
-                        <li class="active">Listado de estudiantes</li>
+                        <li><a href="/userIn">Nuevo usuario</a></li>
+                        <li class="active">Listado de usarios</li>
                     </ol>
                 </div>
             </div>
         </div>
         
         <div class="container-fluid">
-            <h2 class="text-center all-tittles">listado de estudiantes</h2>
+            <h2 class="text-center all-tittles">listado de usarios</h2>
             <div class="table-responsive">
                 <div class="div-table" style="margin:10 !important;">
                     <div class="div-table-row div-table-row-list" style="background-color:#DFF0D8; font-weight:bold;">

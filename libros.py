@@ -2,13 +2,15 @@ from flask import Blueprint, render_template, request, redirect, session
 from logic import Logic
 from librosObj import librosObj
 from librosLogic import librosLogic
+from categoriaLogic import categoriaLogic
 
 libros_blueprint = Blueprint(
     "libros", __name__, template_folder="Templates", static_folder="static"
 )
 @libros_blueprint.route("/book")
 def book():
-    return render_template("book.html")
+    categorias = categoriaLogic().getAllCategory()
+    return render_template("book.html", categorias=categorias)
 
 @libros_blueprint.route("/catalog", methods=["GET", "POST"])
 def catalog():
@@ -30,7 +32,9 @@ def bookinsert():
         pais= (request.form["pais"])
         anno= (request.form["anno"])
         disponibles= int((request.form["disponibles"]))
-        logic.insertLibro (titulo,autor,edicion, editorial, correlativo, pais, anno, disponibles, 1 )
+        id_categoria = int((request.form["categoria"]))
+        logic.insertLibro (titulo,autor,edicion, editorial, correlativo, pais, anno, disponibles, id_categoria)
+    categorias = categoriaLogic().getAllCategory()
     return render_template(
-            "book.html", message = "Insertado correctamente"
+            "book.html", message = "Insertado correctamente", categorias=categorias
         )

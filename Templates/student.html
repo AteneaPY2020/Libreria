@@ -37,7 +37,7 @@
             <div class="nav-lateral-divider full-reset"></div>
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
-                    <li><a href="C:\Users\alexi\Desktop\ESEN\Tercer año\Proyecto\Libreria\Templates\home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="/home"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Personas <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
@@ -77,7 +77,7 @@
                     <img src="static/assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box">
                 </figure>
                 <li style="color:#fff; cursor:default;">
-                    <span class="all-tittles">Admin Name</span>
+                    <span class="all-tittles">Admin</span>
                 </li>
                 <li  class="tooltips-general exit-system-button" data-href="/login" data-placement="bottom" title="Salir del sistema">
                     <i class="zmdi zmdi-power"></i>
@@ -92,8 +92,8 @@
         </div>
         <div class="conteiner-fluid">
             <ul class="nav nav-tabs nav-justified"  style="font-size: 17px;">
-                <li role="presentation"><a href="Templates/admin.html">Administradores</a></li>
-                <li role="presentation" class="active"><a href="Templates/student.html">Usuarios</a></li>
+                <li role="presentation"><a href="/admin">Administradores</a></li>
+                <li role="presentation" class="active"><a href="/student">Usuarios</a></li>
             </ul>
         </div>
         <div class="container-fluid"  style="margin: 50px 0;">
@@ -110,15 +110,15 @@
             <div class="row">
                 <div class="col-xs-12 lead">
                     <ol class="breadcrumb">
-                        <li class="active">Nuevo estudiante</li>
-                        <li><a href="Templates/liststudent.html">Listado de estudiantes</a></li>
+                        <li class="active">Nuevo usuario</li>
+                        <li><a href="/liststudent">Listado de usuario</a></li>
                     </ol>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
             <div class="container-flat-form">
-                <div class="title-flat-form title-flat-blue">Registrar un nuevo estudiante</div>
+                <div class="title-flat-form title-flat-blue">Registrar un nuevo usuario</div>
                 <form action="/userIn" method="POST">
                     <form class="form-padding">
                         <div class="row">

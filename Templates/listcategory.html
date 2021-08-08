@@ -107,8 +107,8 @@
             <div class="row">
                 <div class="col-xs-12 lead">
                     <ol class="breadcrumb">
-                        <li class="active">Nueva categoría</li>
-                        <li><a href="listcategory.html">Listado de categorías</a></li>
+                        <li><a href="/categoryIn">Nueva categoría</a></li>
+                        <li class="active">Listado de categorías</li>
                     </ol>
                 </div>
             </div>
@@ -129,14 +129,14 @@
                         <div class="div-table-cell">{{registro["id"]}}</div>
                         <div class="div-table-cell">{{registro["codigo"]}}</div>
                         <div class="div-table-cell">{{registro["categoria"]}}</div>
-                    
-                        <form action="/listcategory" method="POST">
-                            <div class="div-table-cell">
+                        
+                        <div class="div-table-cell">
+                            <form action="/listcategory" method="POST">
                                 <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
                                 <input type="hidden" name="formId" id="formId" value="2">
                                 <input type="hidden" name="id" id="id" value="{{registro["id"]}}">
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 {% endfor %}
             </div>

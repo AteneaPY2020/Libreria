@@ -40,7 +40,7 @@
             <div class="nav-lateral-divider full-reset"></div>
             <div class="full-reset nav-lateral-list-menu">
                 <ul class="list-unstyled">
-                    <li><a href="C:\Users\alexi\Desktop\ESEN\Tercer año\Proyecto\Libreria\Templates\home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="/home"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     <li>
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Personas <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
@@ -80,7 +80,7 @@
                     <img src="static/assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box">
                 </figure>
                 <li style="color:#fff; cursor:default;">
-                    <span class="all-tittles">Admin Name</span>
+                    <span class="all-tittles">Admin</span>
                 </li>
                 <li  class="tooltips-general exit-system-button" data-href="/login" data-placement="bottom" title="Salir del sistema">
                     <i class="zmdi zmdi-power"></i>
@@ -130,7 +130,7 @@
                                 <div class="group-material">
                                     <span>Código - Título del libro</span>
                                     <select name="libro"class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro">
-                                        <option value="" disabled="" selected="">Selecciona una categoría</option>
+                                        <option value="" disabled="" selected="">Selecciona un código y título</option>
                                         {% for libro in libros %}
                                             <option value="{{libro["id_libro"]}} {{libro["disponibles"]}}">{{libro["correlativo"]}} - {{libro["titulo"]}}</option>
                                         {% endfor %}
@@ -145,7 +145,7 @@
                                 <div class="group-material">
                                     <span>Nombre - correo</span>
                                     <select name="usuario" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro">
-                                        <option value="" disabled="" selected="">Selecciona una categoría</option>
+                                        <option value="" disabled="" selected="">Selecciona una nombre y correo de usuario</option>
                                         {% for usuario in usuarios %}
                                             <option value="{{usuario["id_usuario"]}}">{{usuario["nombre"]}} {{usuario["apellidos"]}} - {{usuario["correo"]}}</option>
                                         {% endfor %}
