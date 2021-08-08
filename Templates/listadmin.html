@@ -48,7 +48,7 @@
                         <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw icon-sub-menu"></i></div>
                         <ul class="list-unstyled">
                             <li><a href="Templates/student.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo estudiante</a></li>
-                            <li><a href="Templates/admin.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>
+                            <li><a href=/admin><i class="zmdi zmdi-male-female zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo administrador</a></li>
                         </ul>
                     </li>
                     <li>
@@ -117,7 +117,7 @@
             <div class="row">
                 <div class="col-xs-12 lead">
                     <ol class="breadcrumb">
-                        <li><a href="Templates/admin.html">Nuevo administrador</a></li>
+                        <li><a href=/admin>Nuevo administrador</a></li>
                         <li class="active">listado de administradores</li>
                     </ol>
                 </div>
@@ -132,26 +132,30 @@
                     <div class="div-table-cell">Nombre de usuario</div>
                     <div class="div-table-cell">Email</div>
                     <div class="div-table-cell">Eliminar</div>
-                </div>  
-                <div class="div-table-row">
-                    <div class="div-table-cell">#</div>
-                    <div class="div-table-cell">Nombre</div>
-                    <div class="div-table-cell">Nombre de usuario</div>
-                    <div class="div-table-cell">Email</div>
-                    <div class="div-table-cell">
-                        <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                    </div>
-                </div>
-                <div class="div-table-row">
-                    <div class="div-table-cell">#</div>
-                    <div class="div-table-cell">Nombre</div>
-                    <div class="div-table-cell">Nombre de usuario</div>
-                    <div class="div-table-cell">Email</div>
-                    <div class="div-table-cell">
-                        <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                    </div>
-                </div>
+                </div> 
                 
+            {% for registro in data %}
+                <div class="div-table-row">
+                    <div class="div-table-cell">{{registro["id"]}}</div>
+                    <div class="div-table-cell">{{registro["nombre"]}}</div>
+                    <div class="div-table-cell">{{registro["usuario"]}}</div>
+                    <div class="div-table-cell">{{registro["correo"]}}</div>
+                    
+                    <div class="div-table-cell">
+                        <form action="/admininsert" method="POST">
+                            <button type= "submit" class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                            <input type="hidden" name="formId" id="formId" value="2"></input>
+                            <input type="hidden" name="id" id="id" value="{{registro["id"]}}"></input>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% if message2 %}
+                <p style="color: red;">{{message2}}</p>
+                <br>
+            {% endif %}
+
             </div>                  
         </div>
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
