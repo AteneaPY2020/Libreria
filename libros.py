@@ -3,14 +3,14 @@ from logic import Logic
 from librosObj import librosObj
 from librosLogic import librosLogic
 
-libros = Blueprint(
+libros_blueprint = Blueprint(
     "libros", __name__, template_folder="Templates", static_folder="static"
 )
-@libros.route("/book")
+@libros_blueprint.route("/book")
 def book():
     return render_template("book.html")
 
-@libros.route("/catalog", methods=["GET", "POST"])
+@libros_blueprint.route("/catalog", methods=["GET", "POST"])
 def catalog():
     if request.method == "GET":
         logic = librosLogic
@@ -18,7 +18,7 @@ def catalog():
     return render_template(
             "catalog.html", data = libros
         )
-@libros.route("/bookinsert", methods=["GET", "POST"])
+@libros_blueprint.route("/bookinsert", methods=["GET", "POST"])
 def bookinsert():
     if request.method == "POST":
         logic = librosLogic()
