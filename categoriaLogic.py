@@ -57,3 +57,13 @@ class categoriaLogic(Logic):
             return categoriaObj
         else:
             return None
+    def count(self):
+        dataBase = self.get_databaseXObj()
+        sql = (
+            " SELECT COUNT(id_categoria) FROM biblioteca.categoria  "
+        )
+        print(sql)
+        data = dataBase.executeQuery(sql)
+        #data = self.lis(data, self.keys)
+        
+        return data

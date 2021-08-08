@@ -13,6 +13,7 @@ class usuariosLogic(Logic):
             "correo",
             "usuario",
         ]
+        
     #Insert usuario
     def insertUsuario(self, nombre, apellidos, correo, usuario):
         database = self.get_databaseXObj()
@@ -43,3 +44,14 @@ class usuariosLogic(Logic):
         sql = f"delete from biblioteca.usuarios where usuarios.id_usuario = '{id}';"
         rows = database.executeNonQueryRows(sql)
         return rows
+
+    def count(self):
+        dataBase = self.get_databaseXObj()
+        sql = (
+            " SELECT COUNT(id_usuario) FROM biblioteca.usuarios  "
+        )
+        print(sql)
+        data = dataBase.executeQuery(sql)
+        #data = self.lis(data, self.keys)
+        
+        return data

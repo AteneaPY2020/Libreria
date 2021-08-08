@@ -102,3 +102,26 @@ class prestamosLogic(Logic):
         rows = dataBase.executeNonQueryRowsTuple(sql, data)
         
         return rows
+    def count(self):
+        dataBase = self.get_databaseXObj()
+        sql = (
+            " SELECT COUNT(id_prestamo) FROM biblioteca.prestamos WHERE entregado ='1' "
+        )
+        print(sql)
+        data = dataBase.executeQuery(sql)
+        #data = self.tupleToDictionaryList(data, self.keys)
+        
+        return data
+
+    def count_pendiente(self):
+        dataBase = self.get_databaseXObj()
+        sql = (
+            " SELECT COUNT(id_prestamo) FROM biblioteca.prestamos WHERE entregado ='0' "
+        )
+        print(sql)
+        data = dataBase.executeQuery(sql)
+        #data = self.lis(data, self.keys)
+        
+        return data
+
+        

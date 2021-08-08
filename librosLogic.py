@@ -37,3 +37,13 @@ class librosLogic(Logic):
         sql = "delete from biblioteca.libros " + f"where id_libro = {id_libros};"
         rows = database.executeNonQueryRows(sql)
         return rows
+    def count(self):
+        dataBase = self.get_databaseXObj()
+        sql = (
+            " SELECT COUNT(id_libro) FROM biblioteca.libros  "
+        )
+        print(sql)
+        data = dataBase.executeQuery(sql)
+        #data = self.lis(data, self.keys)
+        
+        return data
