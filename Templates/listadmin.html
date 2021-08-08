@@ -141,13 +141,13 @@
                     <div class="div-table-cell">{{registro["usuario"]}}</div>
                     <div class="div-table-cell">{{registro["correo"]}}</div>
                     
-                    <form action="/admininsert" method="POST"></form>
-                        <div class="div-table-cell">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                            <input type="hidden" name="formId" id="formId" value="2">
-                            <input type="hidden" name="id" id="id" value="{{registro["id"]}}">
-                        </div>
-                    </form>
+                    <div class="div-table-cell">
+                        <form action="/admininsert" method="POST">
+                            <button type= "submit" class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                            <input type="hidden" name="formId" id="formId" value="2"></input>
+                            <input type="hidden" name="id" id="id" value="{{registro["id"]}}"></input>
+                        </form>
+                    </div>
                 </div>
             {% endfor %}
 
