@@ -13,3 +13,47 @@ class administradorLogic(Logic):
             "correo",
             "nombre",
         ]
+
+
+    def getUser(self, usuario, contrasenna):
+            dataBase = self.get_databaseXObj()
+            sql = (
+                "SELECT * FROM biblioteca.administradores "
+                + f"where administradores.usuario = '{usuario}' and administradores.contrasenna = '{contrasenna}';"
+            )
+            print(sql)
+            data = dataBase.executeQuery(sql)
+            data = self.tupleToDictionaryList(data, self.keys)
+            
+            if len(data) > 0:
+                data_dic = data[0]
+                administradorObj = administradorObj(
+                    data_dic["id"],
+                    data_dic["usuario"],
+                    data_dic["contrasenna"],
+                )
+                return administradorObj
+            else:
+                return None
+
+    def createDictionary(self, adminObj):
+        dictionary = {
+            "id": adminObj.id,
+            "usuario": adminObj.user,
+            "contrasenna": adminObj.password,
+        }
+        return dictionary
+
+    
+    
+    
+    def countAdmin(self):
+        dataBase = self.get_databaseXObj()
+        sql = (
+            " SELECT COUNT(id_administrador) FROM biblioteca.administradores  "
+        )
+        print(sql)
+        data = dataBase.executeQuery(sql)
+        data = self.tupleToDictionaryList(data, self.keys)
+        
+        return data
