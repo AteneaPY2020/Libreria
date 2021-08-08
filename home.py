@@ -7,7 +7,7 @@ home = Blueprint(
     "home", __name__, template_folder="Templates", static_folder="static"
 )
 
-@home.route("/home", method=["GET", "POST"])
+@home.route("/home", methods=["GET", "POST"])
 def countHome():
     logic = administradorLogic()
     if request.method == "GET":

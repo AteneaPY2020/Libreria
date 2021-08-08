@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, session
-from login import login
+from login import login_admin
 from home import home
 
 app = Flask(__name__)
-#app.register_blueprint(login, url_prefix="")
+app.register_blueprint(login_admin, url_prefix="")
 app.register_blueprint(home, url_prefix="")
 #app.register_blueprint(inicio_inversionista, url_prefix="")
 #app.register_blueprint(emprendimiento, url_prefix="")

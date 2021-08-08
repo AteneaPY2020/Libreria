@@ -25,16 +25,8 @@ class administradorLogic(Logic):
             data = dataBase.executeQuery(sql)
             data = self.tupleToDictionaryList(data, self.keys)
             
-            if len(data) > 0:
-                data_dic = data[0]
-                administradorObj = administradorObj(
-                    data_dic["id"],
-                    data_dic["usuario"],
-                    data_dic["contrasenna"],
-                )
-                return administradorObj
-            else:
-                return None
+            
+            return data
 
     def createDictionary(self, adminObj):
         dictionary = {
