@@ -1,6 +1,3 @@
-<!-- 
-* Copyright 2018 Carlos Eduardo Alfaro Orellana
--->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -132,40 +129,36 @@
         <div class="container-fluid">
             <h2 class="text-center all-tittles">listado de estudiantes</h2>
             <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
+                <div class="div-table" style="margin:10 !important;">
                     <div class="div-table-row div-table-row-list" style="background-color:#DFF0D8; font-weight:bold;">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 18%;">Apellidos</div>
-                        <div class="div-table-cell" style="width: 18%;">Nombres</div>
-                        <div class="div-table-cell" style="width: 9%;">Eliminar</div>
+                        <div class="div-table-cell" style="width: 2%;">#</div>
+                        <div class="div-table-cell" style="width: 3%;">Apellidos</div>
+                        <div class="div-table-cell" style="width: 3%;">Nombres</div>
+                        <div class="div-table-cell" style="width: 3%;">Usuarios</div>
+                        <div class="div-table-cell" style="width: 2%;">Eliminar</div>
                     </div>
                 </div>
             </div>
-            <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
-                    <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 18%;">Apellidos</div>
-                        <div class="div-table-cell" style="width: 18%;">Nombres</div>
-                        <div class="div-table-cell" style="width: 9%;">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+            {% for registro in data %}
+                <div class="table-responsive">
+                    <div class="div-table" style="margin:0 !important;">
+                        <div class="div-table-row div-table-row-list">
+                            <div class="div-table-cell" style="width: 16%;">{{registro["id"]}}</div>
+                            <div class="div-table-cell" style="width: 22%;">{{registro["apellidos"]}}</div>
+                            <div class="div-table-cell" style="width: 22%;">{{registro["nombre"]}}</div>
+                            <div class="div-table-cell" style="width: 28%;">{{registro["usuario"]}}</div>
+                            
+                            <form action="/liststudent" method="POST">
+                                <div class="div-table-cell" style="width: 28%;">
+                                    <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                                    <input type="hidden" name="formId" id="formId" value="2">
+                                    <input type="hidden" name="id" id="id" value="{{registro["id"]}}">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
-                    <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 18%;">Apellidos</div>
-                        <div class="div-table-cell" style="width: 18%;">Nombres</div>
-                        <div class="div-table-cell" style="width: 9%;">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+            {% endfor %}
         </div>
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
           <div class="modal-dialog modal-lg">
