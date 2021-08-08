@@ -60,4 +60,4 @@ def admininsert():
             logicDelete.deleteAdmin(id_administrador)
             message2 = "Se ha eliminado un administrador"
             data = logic.getAllAdmin()
-            return render_template("admin.html", data=data, message2=message2)
+            return render_template("listadmin.html", data=data, message2=message2)
