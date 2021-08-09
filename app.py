@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, Blueprint
-from flask.scaffold import F
+#from flask.scaffold import F
 from nuevoPrestamo import nuevo_prestamo_blueprint
 from prestamos import prestamo_blueprint
 from prestamosPendientes import prestamos_pendientes_blueprint
